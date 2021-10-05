@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const port = process.env.PORT || 3000;
+app.use(express.static('public'));
 
 app.listen(3030, () => console.log("Servidor corriendo"));
 
@@ -35,5 +37,3 @@ app.get('/lovelace', (req, res) => {
 app.get('/turing', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/turing.html'));
 })
-
-app.use(express.static('public'));
